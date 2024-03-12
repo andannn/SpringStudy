@@ -1,5 +1,6 @@
 package com.andannn.springstudy.demo.data.`do`
 
+import com.andannn.springstudy.demo.data.dto.UserDto
 import jakarta.persistence.*
 
 @Entity
@@ -17,4 +18,11 @@ data class User(
 
     @Column
     var age: Int,
+)
+
+
+fun User.toDto() = UserDto(
+    id = id,
+    name = "$firstName, $lastName",
+    age = age
 )
